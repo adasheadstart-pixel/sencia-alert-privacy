@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sencia Alert — Privacy Policy</title>
+<style>
+  body { font-family: -apple-system, system-ui, sans-serif; max-width: 700px; margin: 40px auto;
+         padding: 0 20px; line-height: 1.6; color: #1a1a1a; }
+  h1 { font-size: 1.6em; }
+  h2 { font-size: 1.2em; margin-top: 1.5em; }
+  code { background: #f0f0f0; padding: 1px 5px; border-radius: 3px; font-size: 0.9em; }
+  a { color: #0060df; }
+  .table-wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95em; }
+  th, td { border: 1px solid #d8d8d8; padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #f5f5f5; }
+</style>
+</head>
+<body>
+<h1>Privacy Policy — Sencia Alert</h1>
+<p>This describes what the app actually does as of the current build (<code>com.sencia.alert</code>), not
+aspirational future features. Hosted for Play Console at
+https://adasheadstart-pixel.github.io/sencia-alert-privacy/ — that page is generated from this file; edit
+here, not there. Reviewed for accuracy against the current manifest, not for legal sufficiency;
+get real legal review (DPDP Act, India) before treating this as more than a good-faith draft.</p>
+<p><em>Last reviewed: 2026-10-11, against the app's current <code>AndroidManifest.xml</code> permissions.</em></p>
+<h2>What this app does with your data</h2>
+<p><strong>Everything stays on your phone.</strong> The app has no internet permission — it cannot send data
+anywhere, to us or anyone else, even if it wanted to. There is no account, no sign-in, no
+analytics SDK, and no crash reporting service.</p>
+<h2>Data the app accesses, and why</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Why</th>
+<th>Where it goes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Camera</td>
+<td>Detecting vehicles ahead for the collision warning, and dashcam recording.</td>
+<td>Processed on-device only. Video is written to local storage (see below); no frame is ever transmitted.</td>
+</tr>
+<tr>
+<td>Location (GPS)</td>
+<td>Speed is required to gate alerts — collision warnings are suppressed below ~15 km/h, and headway/time-to-collision figures depend on your speed. Trip distance is also computed from GPS speed.</td>
+<td>Used live, on-device, to compute speed. Trip summaries (distance, duration, alert count) are saved locally — see below. Raw location coordinates are not logged or stored.</td>
+</tr>
+<tr>
+<td>Accelerometer</td>
+<td>Detecting hard-braking events and impacts (to protect dashcam footage automatically).</td>
+<td>Processed on-device only, never stored as raw sensor data.</td>
+</tr>
+</tbody>
+</table></div>
+<h2>Data stored on your device</h2>
+<ul>
+<li><strong>Dashcam footage</strong>, recorded in a rolling loop and stored in the app's local storage area.
+  You can delete clips yourself; locked clips (from an impact or a critical alert) are kept
+  until you unlock them.</li>
+<li><strong>Trip log</strong> (distance, duration, average speed, alert count, hard-braking count) as a
+  local file on your device. No location coordinates are included — only these summary
+  figures.</li>
+<li><strong>Calibration settings</strong> (mount height, horizon position) and app preferences (selected
+  model, accelerator), stored locally.</li>
+<li><strong>Benchmark and diagnostic reports</strong>, if you run the built-in throughput benchmark —
+  written locally for your own review.</li>
+</ul>
+<p>None of the above is uploaded, synced, or shared. Uninstalling the app removes all of it
+(except dashcam clips you've explicitly saved to another location, e.g. by transferring them
+off the device yourself).</p>
+<h2>Permissions</h2>
+<ul>
+<li><strong>Camera</strong> — required to run at all.</li>
+<li><strong>Location</strong> — required for collision-warning alerts to function; the app runs without it,
+  but alerts stay suppressed and the display shows "no GPS fix" rather than guessing your
+  speed.</li>
+</ul>
+<p>The manifest also declares approximate location, because Android will not show a request for
+precise location on its own. The app never uses an approximate fix: if you grant only
+"approximate", it behaves exactly as if location had been refused.</p>
+<p>No other permissions are requested.</p>
+<h2>Changes to this policy</h2>
+<p>If a future version adds anything that changes this — cloud backup, an account system, crash
+reporting, or an insurance-partnership data-sharing feature (all discussed as <em>possible</em>
+future directions, not yet built) — this document will be updated before that version ships,
+and the change will be described here rather than silently expanding what an earlier
+acceptance covered.</p>
+<h2>Contact</h2>
+<p>Support: <a href="mailto:adas.headstart@gmail.com">adas.headstart@gmail.com</a><br>
+Developer: Ravindra Ghatage</p>
+</body>
+</html>
